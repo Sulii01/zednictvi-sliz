@@ -129,21 +129,49 @@
     });
   }
 
-  // Poptávkový formulář – otevře e-mail s předvyplněnou zprávou
+  // Poptávkový formulář – odeslání přes Web3Forms, e-mail dorazí majiteli.
+  // Bez JavaScriptu funguje klasické odeslání formuláře (action) na stránku Web3Forms.
   var form = document.getElementById("poptavka");
   if (form) {
+    var status = form.querySelector(".form-status");
+    var button = form.querySelector('button[type="submit"]');
+    var label = button.querySelector("span");
+    var setStatus = function (text, type) {
+      status.textContent = text;
+      status.className = "form-status" + (type ? " form-status--" + type : "");
+    };
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var d = new FormData(form);
-      var body =
-        "Jméno: " + d.get("jmeno") + "\n" +
-        "Telefon: " + d.get("telefon") + "\n" +
-        "Obec: " + d.get("obec") + "\n" +
-        "Typ práce: " + d.get("typ") + "\n\n" +
-        d.get("zprava");
-      window.location.href =
-        "mailto:marko.s@seznam.cz?subject=" + encodeURIComponent("Poptávka z webu – " + d.get("typ")) +
-        "&body=" + encodeURIComponent(body);
+      var data = {};
+      new FormData(form).forEach(function (value, key) { data[key] = value; });
+      if (data.botcheck) return; // vyplnil robot
+      delete data.botcheck;
+      data.subject = "Nová poptávka z webu – " + data["Typ práce"] + " – " + data["Jméno a příjmení"];
+      if (data.email) data.replyto = data.email;
+
+      button.disabled = true;
+      label.textContent = "Odesílám…";
+      setStatus("", "");
+
+      fetch(form.action, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(data)
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (json) {
+          if (!json.success) throw new Error(json.message);
+          form.reset();
+          setStatus("Děkujeme, poptávka byla odeslána. Ozveme se vám co nejdříve.", "ok");
+        })
+        .catch(function () {
+          setStatus("Poptávku se nepodařilo odeslat. Zavolejte prosím na +420 604 349 673 nebo napište na marko.s@seznam.cz.", "error");
+        })
+        .then(function () {
+          button.disabled = false;
+          label.textContent = "Odeslat poptávku";
+        });
     });
   }
 })();

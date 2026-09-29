@@ -75,16 +75,23 @@
           <p>IČO: 73194417</p>
         </div>
 
-        <form class="form reveal" id="poptavka">
+        <form class="form reveal" id="poptavka" action="https://api.web3forms.com/submit" method="POST">
           <h2 style="font-size:1.6rem">Nezávazná poptávka</h2>
+          <!-- Web3Forms: poptávky se posílají e-mailem majiteli (klíč není tajný, je určený pro veřejný web) -->
+          <input type="hidden" name="access_key" value="2081c4cb-2077-410a-b56e-8c65a90910c3">
+          <input type="hidden" name="subject" value="Nová poptávka z webu zedniktrinec.cz">
+          <input type="hidden" name="from_name" value="Web Zednictví Sliž">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="form-row">
-            <div class="field"><label for="jmeno">Jméno a příjmení</label><input id="jmeno" name="jmeno" required autocomplete="name"></div>
-            <div class="field"><label for="telefon">Telefon</label><input id="telefon" name="telefon" type="tel" required autocomplete="tel"></div>
+            <div class="field"><label for="jmeno">Jméno a příjmení *</label><input id="jmeno" name="Jméno a příjmení" required autocomplete="name"></div>
+            <div class="field"><label for="telefon">Telefon *</label><input id="telefon" name="Telefon" type="tel" required autocomplete="tel"></div>
           </div>
           <div class="form-row">
-            <div class="field"><label for="obec">Obec stavby</label><input id="obec" name="obec" placeholder="např. Třinec"></div>
-            <div class="field"><label for="typ">Typ práce</label>
-              <select id="typ" name="typ">
+            <div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" placeholder="nepovinné"></div>
+            <div class="field"><label for="obec">Obec / adresa stavby</label><input id="obec" name="Obec / adresa stavby" placeholder="např. Třinec"></div>
+          </div>
+          <div class="field"><label for="typ">Typ práce</label>
+              <select id="typ" name="Typ práce">
                 <option>Rekonstrukce bytu / koupelny</option>
                 <option>Stavba rodinného domu</option>
                 <option>Zateplení fasády / půdy</option>
@@ -92,11 +99,11 @@
                 <option>Bazén</option>
                 <option>Jiné</option>
               </select>
-            </div>
           </div>
-          <div class="field"><label for="zprava">Popis práce</label><textarea id="zprava" name="zprava" placeholder="Popište, co potřebujete udělat, přibližný rozsah a termín…"></textarea></div>
-          <button class="btn btn--primary" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg> Odeslat poptávku</button>
-          <small>Po odeslání se vám otevře e-mailový program s předvyplněnou zprávou.</small>
+          <div class="field"><label for="zprava">Popis práce *</label><textarea id="zprava" name="Popis práce" required placeholder="Popište, co potřebujete udělat, přibližný rozsah a termín…"></textarea></div>
+          <button class="btn btn--primary" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg> <span>Odeslat poptávku</span></button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+          <small>Poptávku obdrží přímo Marek Sliž a ozve se vám zpět. Údaje použijeme jen k vyřízení vaší poptávky.</small>
         </form>
       </div>
       <div class="container">

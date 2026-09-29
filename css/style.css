@@ -358,7 +358,15 @@ a.contact-item:hover { border-color: var(--yellow-dark); box-shadow: var(--shado
 }
 .field textarea { min-height: 140px; resize: vertical; }
 .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--yellow-dark); background: #fff; }
+.field input, .field select { height: 52px; }
+.field select { appearance: auto; }
 .form small { color: var(--muted); display: block; margin-top: 12px; }
+.form button[disabled] { opacity: .6; cursor: wait; transform: none; }
+.form-status:empty { display: none; }
+.form-status { margin: 16px 0 0; padding: 14px 16px; border-radius: var(--radius-sm); font-weight: 600; }
+.form-status--ok { background: #e7f6ea; color: #1d6b32; }
+.form-status--error { background: #fdecec; color: #a12626; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 
 .map { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); margin-top: 60px; }
 .map iframe { display: block; width: 100%; height: 380px; border: 0; }
