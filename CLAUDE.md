@@ -6,7 +6,7 @@ Statický web zednické firmy **Zednictví Sliž** (Marek Sliž, Bystřice 1398,
 - Čisté HTML/CSS/JS bez frameworku a bez build kroku. Zdrojem pravdy jsou přímo soubory v repozitáři.
 - Stránky: `index.html`, `rekonstrukce-bytu.html`, `rodinne-domy.html`, `zatepleni-fasady.html`, `dalsi-cinnosti.html`, `o-nas.html`, `kontakt.html`.
 - `css/style.css` – jediný stylopis; barvy a rozměry jako proměnné v `:root` (`--yellow`, `--ink`, `--header-h`…).
-- `js/main.js` – mobilní menu, stín hlavičky, reveal animace, lightbox galerie, tlačítko „zobrazit další fotky“, dopočet let praxe (`[data-praxe]` = aktuální rok − 1995) a roku (`[data-year]`), poptávkový formulář (skládá `mailto:` – web nemá backend).
+- `js/main.js` – mobilní menu, stín hlavičky, reveal animace, lightbox galerie, tlačítko „zobrazit další fotky“, aktuální rok v patičce (`[data-year]`), poptávkový formulář (skládá `mailto:` – web nemá backend).
 - `img/` – fotky pro web (max 1600 px), `img/nahled/` – náhledy do galerií (max 640 px) se stejnými názvy. Názvy popisují obsah (`koupelna-wc-01.jpg`, `hruba-stavba-05.jpg`…). `img/original/` je lokální záloha, v gitu není.
 - `img/logo.svg` – logo překreslené do vektoru (text převeden na křivky, font Montserrat). `img/logo.png` je původní malé logo, používá se už jen ve strukturovaných datech.
 - `rekonstrukce/`, `domy/`, `fasady/`, `dalsi/`, `o-nas/`, `kontakt/` – meta-refresh přesměrování starých Webnode adres (GitHub Pages neumí serverové přesměrování). `.htaccess` a `_redirects` dělají totéž pro Apache hosting / Netlify / Cloudflare.
@@ -19,6 +19,7 @@ Statický web zednické firmy **Zednictví Sliž** (Marek Sliž, Bystřice 1398,
 - Obrázky v galerii: `<a href="img/X.jpg"><img src="img/nahled/X.jpg" alt="… – foto N" width height loading="lazy"></a>`. Nové fotky zmenšit (1600 px + náhled 640 px), neukládat plné rozlišení.
 - Hlavička musí zůstat čistě bílá (`#fff`) i při scrollu – požadavek uživatele. Při scrollu se smí měnit jen stín.
 - Mobilní menu se zapíná pod 1181 px; telefonní tlačítko v hlavičce je skryté mezi 1181–1379 px, aby se hlavička nevešla přes okraj. Po změnách v hlavičce ověřit, že na 1200/1280/1400/1920 px nevzniká vodorovný scroll.
+- Praxe se uvádí pevně jako **„24+ let“ / „více než 24 let“** (požadavek majitele) – nepřepočítávat podle roku a neuvádět rok založení.
 - Nevymýšlet fakta o firmě (otevírací doba, reference, ceny, počty zakázek). Údaje přebírat ze starého webu nebo od uživatele.
 
 ## Náhled a nasazení
@@ -30,4 +31,4 @@ Statický web zednické firmy **Zednictví Sliž** (Marek Sliž, Bystřice 1398,
 ## Otevřené body
 - Doména www.zedniktrinec.cz zatím vede na Webnode; napojení na Pages (CNAME `www` → `sulii01.github.io`) čeká na uživatele.
 - Odkaz na Facebook v `kontakt.html` je zakomentovaný – na starém webu byl jen vzorový odkaz Webnode, skutečná stránka zatím neexistuje.
-- K ověření u majitele: rok začátku podnikání (1995), seznam obsluhovaných obcí. Chybí fotky zámkové dlažby a plotů.
+- K ověření u majitele: seznam obsluhovaných obcí. Chybí fotky zámkové dlažby a plotů.

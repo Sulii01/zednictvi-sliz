@@ -27,10 +27,9 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  // Aktuální rok a počet let praxe (firma působí od roku 1995)
+  // Aktuální rok v patičce
   var year = new Date().getFullYear();
   document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = year; });
-  document.querySelectorAll("[data-praxe]").forEach(function (el) { el.textContent = year - 1995; });
 
   // Postupné zobrazování sekcí
   var reveals = document.querySelectorAll(".reveal");
