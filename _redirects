@@ -1,0 +1,11 @@
+# Přesměrování starých adres z Webnode (pro Netlify / Cloudflare Pages)
+/rekonstrukce/   /rekonstrukce-bytu.html   301
+/rekonstrukce    /rekonstrukce-bytu.html   301
+/domy/           /rodinne-domy.html        301
+/domy            /rodinne-domy.html        301
+/fasady/         /zatepleni-fasady.html    301
+/fasady          /zatepleni-fasady.html    301
+/dalsi/          /dalsi-cinnosti.html      301
+/dalsi           /dalsi-cinnosti.html      301
+/o-nas/          /o-nas.html               301
+/kontakt/        /kontakt.html             301

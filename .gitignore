@@ -1,0 +1,6 @@
+# Záloha originálních fotek (velké soubory)
+img/original/
+# Nastavení nástrojů
+.claude/
+# Interní poznámky – nemají být veřejně na webu
+JAK-ZVIDITELNIT-WEB.md

@@ -1,0 +1,23 @@
+# Přesměrování starých adres z Webnode na nové stránky (pro hosting s Apache – Wedos, Forpsi, Active24…)
+RewriteEngine On
+RewriteRule ^rekonstrukce/?$ /rekonstrukce-bytu.html [R=301,L]
+RewriteRule ^domy/?$ /rodinne-domy.html [R=301,L]
+RewriteRule ^fasady/?$ /zatepleni-fasady.html [R=301,L]
+RewriteRule ^dalsi/?$ /dalsi-cinnosti.html [R=301,L]
+RewriteRule ^o-nas/?$ /o-nas.html [R=301,L]
+RewriteRule ^kontakt/?$ /kontakt.html [R=301,L]
+
+# Vynucení HTTPS a www
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ https://www.zedniktrinec.cz/$1 [R=301,L]
+
+# Cache obrázků, stylů a skriptů
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
