@@ -27,7 +27,7 @@ Statický web zednické firmy **Zednictví Sliž** (Marek Sliž, Bystřice 1398,
 - Lokálně: `python -m http.server 8080` v kořeni (konfigurace `web` v `.claude/launch.json`). Otevření souboru přes `file://` v náhledu nenačte CSS.
 - Hosting: GitHub Pages z větve `main` (kořen) – https://sulii01.github.io/zednictvi-sliz/, repozitář https://github.com/Sulii01/zednictvi-sliz. Po `git push` se web aktualizuje zhruba do minuty.
 - Git je přenosný MinGit v `%LOCALAPPDATA%\Programs\MinGit\cmd` a není v PATH – v PowerShellu nejdřív `$env:Path = "$env:LOCALAPPDATA\Programs\MinGit\cmd;" + $env:Path`. `gh` je nainstalovaný a přihlášený (účet Sulii01).
-- Do gitu nepatří: `img/original/`, `.claude/`, `JAK-ZVIDITELNIT-WEB.md` (interní návod k SEO a reklamě – na Pages by byl veřejný). Viz `.gitignore`.
+- Do gitu nepatří: `img/original/`, `.claude/`, `JAK-ZVIDITELNIT-WEB.md` (interní návod k SEO a reklamě – na Pages by byl veřejný), `ZAZNAM-CHATU.md` (shrnutí dosavadní spolupráce – při navázání práce si ho přečti). Viz `.gitignore`.
 
 ## Otevřené body
 - Doména www.zedniktrinec.cz zatím vede na Webnode; napojení na Pages (CNAME `www` → `sulii01.github.io`) čeká na uživatele.
